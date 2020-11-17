@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Mengenal Elasticsearch - Backendhabit</title><meta name="Description" content=""><meta property="og:title" content="Mengenal Elasticsearch" />
+<meta property="og:description" content="Pengenalan Elasticsearach adalah sebuah mesin pencari yang menggunakan libary Lucene yang juga dikhususkan untuk melakukan pencarian cepat. Elasticsearch menyediakan layanan untuk memudahkan user melakukan fungsi search full text pada aplikasinya dengan menggunakan protocol HTTP dan JSON document. Elasticsearch dibuat menggunakan bahasa pemrograman Java. Sebagian product elasticsearch sudah dibawah lisensi opensource dan sebagian lagi dibawah lisensi Elasticsearch itu sendiri. Official client yang sudah stable saat ini yaitu Java, .NET, PHP, Python, Apache Groovy, Ruby dan bahasa pemrograman Lainnya." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://backendhabit.com/posts/belajar-fundamental-elasticsearch/" />
+<meta property="article:published_time" content="2020-11-17T09:46:03+07:00" />
+<meta property="article:modified_time" content="2020-11-17T09:46:03+07:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mengenal Elasticsearch"/>
+<meta name="twitter:description" content="Pengenalan Elasticsearach adalah sebuah mesin pencari yang menggunakan libary Lucene yang juga dikhususkan untuk melakukan pencarian cepat. Elasticsearch menyediakan layanan untuk memudahkan user melakukan fungsi search full text pada aplikasinya dengan menggunakan protocol HTTP dan JSON document. Elasticsearch dibuat menggunakan bahasa pemrograman Java. Sebagian product elasticsearch sudah dibawah lisensi opensource dan sebagian lagi dibawah lisensi Elasticsearch itu sendiri. Official client yang sudah stable saat ini yaitu Java, .NET, PHP, Python, Apache Groovy, Ruby dan bahasa pemrograman Lainnya."/>
+<meta name="application-name" content="Backendhabit">
+<meta name="apple-mobile-web-app-title" content="Backendhabit"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://backendhabit.com/posts/belajar-fundamental-elasticsearch/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Mengenal Elasticsearch",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/backendhabit.com\/posts\/belajar-fundamental-elasticsearch\/"
+        },"genre": "posts","keywords": "Elasticsearch, Lucene, Search engine","wordcount":  320 ,
+        "url": "http:\/\/backendhabit.com\/posts\/belajar-fundamental-elasticsearch\/","datePublished": "2020-11-17T09:46:03+07:00","dateModified": "2020-11-17T09:46:03+07:00","publisher": {
+            "@type": "Organization",
+            "name": "Teten Nugraha"},"author": {
+                "@type": "Person",
+                "name": "Teten Nugraha"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Backendhabit">Backendhabit</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Backendhabit">Backendhabit</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Mengenal Elasticsearch</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Teten Nugraha</a></span>&nbsp;<span class="post-category">included in <a href=""><i class="far fa-folder fa-fw"></i></a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-11-17">2020-11-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;320 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#pengenalan">Pengenalan</a></li>
+    <li><a href="#bedanya-dengan-rdbms-">Bedanya dengan RDBMS ?</a></li>
+    <li><a href="#permasalahan-apa-yang-solve-pakai-elasticsearch-">Permasalahan apa yang solve pakai Elasticsearch ?</a></li>
+    <li><a href="#kapan-kita-menggunakan-elasticsearch-">Kapan kita menggunakan Elasticsearch ?</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/post/elastic.png"
+        data-srcset="/img/post/elastic.png, /img/post/elastic.png 1.5x, /img/post/elastic.png 2x"
+        data-sizes="auto"
+        alt="/img/post/elastic.png"
+        title="I wish all my images had alt text 🤦‍♂️" /></p>
+<h2 id="pengenalan">Pengenalan</h2>
+<p>Elasticsearach adalah sebuah mesin pencari yang menggunakan libary Lucene yang juga dikhususkan untuk melakukan pencarian cepat. Elasticsearch menyediakan layanan untuk memudahkan user melakukan fungsi search full text pada aplikasinya dengan menggunakan protocol HTTP dan JSON document. Elasticsearch dibuat menggunakan bahasa pemrograman Java. Sebagian product elasticsearch sudah dibawah lisensi opensource dan sebagian lagi dibawah lisensi Elasticsearch itu sendiri. Official client yang sudah stable saat ini yaitu Java, .NET, PHP, Python, Apache Groovy, Ruby dan bahasa pemrograman Lainnya.</p>
+<h2 id="bedanya-dengan-rdbms-">Bedanya dengan RDBMS ?</h2>
+<p>Karena Elasticsearch adalah bagian dari database NoSQL dimana tidak ada relasi seperti yang sering kita gunakan misalkanya menggunakan MySQL atau Postgresql. Ada beberapa perbedaan yang major antara RDBMS vs NoSQL</p>
+<table>
+<thead>
+<tr>
+<th>RDBMS (MySQL, PostgreSQL, Oracle, SQLServer dll)</th>
+<th>ElasticSearch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Database</td>
+<td>Index</td>
+</tr>
+<tr>
+<td>Table</td>
+<td>Type</td>
+</tr>
+<tr>
+<td>Row</td>
+<td>Document</td>
+</tr>
+</tbody>
+</table>
+<h2 id="permasalahan-apa-yang-solve-pakai-elasticsearch-">Permasalahan apa yang solve pakai Elasticsearch ?</h2>
+<p>Kebanyakan ecommerce menggunakan elasticsearch untuk melakukan pencarian cepat terhadap suatu product. Kita bisa lihat pada salah satu estore Blibli, seperti dibawah ini.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/post/blibli.png"
+        data-srcset="/img/post/blibli.png, /img/post/blibli.png 1.5x, /img/post/blibli.png 2x"
+        data-sizes="auto"
+        alt="/img/post/blibli.png"
+        title="I wish all my images had alt text 🤦‍♂️" /></p>
+<p>Ketika mengetikan satu product di bagian text pencarinya, maka blibli mengeluarkan informasi tentang</p>
+<ol>
+<li>Pencarian Populer</li>
+<li>Product Popuper</li>
+<li>Seller yang menjual product tersebut</li>
+</ol>
+<p>informasi itu di keluarkan dalam hitungan detik, kita ingat bahwa sebuah estore mungkin mempunyai jutaan data product dan seller ditambah data pembeliannya, bisa dibayangkan kalau sugesti diatas menggunakan RDBMS, mungkin blibli bisa mengeluarkan informasi sugesti itu dalam waktu yang cukup lama. Nah untuk permasalah seperti itu lah Elasticsearch menyediakan solusinya, disamping itu Elasticsearch juga bisa digunakan untuk menyimpan log aplikasi menggunakan Logstach dan Kibana.</p>
+<h2 id="kapan-kita-menggunakan-elasticsearch-">Kapan kita menggunakan Elasticsearch ?</h2>
+<p>Yaa seperti contoh kasus diatas, kita bisa menggunakan elasticsearch ketika kita ingin mengeluarkan informasi data secara cepat yang mempunyai spesifikasi yang sangat beragam, misalkan kalian mempunyai toko online, dan kalian ingin mengeluarkan data secara cepat tentang suatu product yaitu:</p>
+<ul>
+<li>Product Terbaru</li>
+<li>Stok Product</li>
+<li>Siapa Penjual nya</li>
+<li>Top Testimony product tersebut</li>
+<li>Barang termurah ke barang termahal</li>
+<li>dll</li>
+</ul>
+<p>Oke pada post selanjut nya, kita akan membahas cara instalassi Elasticsearch di windows 10 dan kita akan melakukan CRUD Sederhana.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-11-17</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=""></a>,&nbsp;<a href=""></a>,&nbsp;<a href=""></a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.76.5">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

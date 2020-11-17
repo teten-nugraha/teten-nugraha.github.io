@@ -2,8 +2,8 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://example.org/posts/first_post/</loc><lastmod>2020-11-05T15:54:53&#43;07:00</lastmod></url><url>
-            <loc>http://example.org/</loc><lastmod>2020-11-05T15:54:53&#43;07:00</lastmod></url><url>
-            <loc>http://example.org/posts/</loc><lastmod>2020-11-05T15:54:53&#43;07:00</lastmod></url><url>
-            <loc>http://example.org/categories/</loc></url><url>
-            <loc>http://example.org/tags/</loc></url></urlset>
+            <loc>http://backendhabit.com/</loc><lastmod>2020-11-17T09:46:03&#43;07:00</lastmod></url><url>
+            <loc>http://backendhabit.com/posts/belajar-fundamental-elasticsearch/</loc><lastmod>2020-11-17T09:46:03&#43;07:00</lastmod></url><url>
+            <loc>http://backendhabit.com/posts/</loc><lastmod>2020-11-17T09:46:03&#43;07:00</lastmod></url><url>
+            <loc>http://backendhabit.com/blog/categories/</loc></url><url>
+            <loc>http://backendhabit.com/blog/tags/</loc></url></urlset>

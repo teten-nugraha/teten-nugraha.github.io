@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>All Posts - My New Hugo Site</title>
-        <link>http://example.org/posts/</link>
-        <description>All Posts | My New Hugo Site</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 05 Nov 2020 15:54:53 &#43;0700</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>First_post</title>
-    <link>http://example.org/posts/first_post/</link>
-    <pubDate>Thu, 05 Nov 2020 15:54:53 &#43;0700</pubDate>
+        <title>All Posts - Backendhabit</title>
+        <link>http://backendhabit.com/posts/</link>
+        <description>All Posts | Backendhabit</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 17 Nov 2020 09:46:03 &#43;0700</lastBuildDate><atom:link href="http://backendhabit.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Mengenal Elasticsearch</title>
+    <link>http://backendhabit.com/posts/belajar-fundamental-elasticsearch/</link>
+    <pubDate>Tue, 17 Nov 2020 09:46:03 &#43;0700</pubDate>
     <author>Author</author>
-    <guid>http://example.org/posts/first_post/</guid>
-    <description><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Condimentum vitae sapien pellentesque habitant. Ipsum dolor sit amet consectetur adipiscing elit ut aliquam. A diam maecenas sed enim ut sem. Magna etiam tempor orci eu lobortis elementum nibh tellus. Urna nunc id cursus metus aliquam eleifend. Tincidunt augue interdum velit euismod in pellentesque massa placerat duis. Enim diam vulputate ut pharetra sit amet aliquam id diam.]]></description>
+    <guid>http://backendhabit.com/posts/belajar-fundamental-elasticsearch/</guid>
+    <description><![CDATA[Pengenalan Elasticsearach adalah sebuah mesin pencari yang menggunakan libary Lucene yang juga dikhususkan untuk melakukan pencarian cepat. Elasticsearch menyediakan layanan untuk memudahkan user melakukan fungsi search full text pada aplikasinya dengan menggunakan protocol HTTP dan JSON document. Elasticsearch dibuat menggunakan bahasa pemrograman Java. Sebagian product elasticsearch sudah dibawah lisensi opensource dan sebagian lagi dibawah lisensi Elasticsearch itu sendiri. Official client yang sudah stable saat ini yaitu Java, .NET, PHP, Python, Apache Groovy, Ruby dan bahasa pemrograman Lainnya.]]></description>
 </item></channel>
 </rss>

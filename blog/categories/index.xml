@@ -1,0 +1,7 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Blog/Categories - Category - Backendhabit</title>
+        <link>http://backendhabit.com/blog/categories/</link>
+        <description>Blog/Categories - Category - Backendhabit</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="http://backendhabit.com/blog/categories/" rel="self" type="application/rss+xml" /></channel>
+</rss>
